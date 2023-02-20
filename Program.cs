@@ -4,13 +4,10 @@
     {
         public static void Main(string[] args)
         {
-            EmpWageBuilder infosys = new EmpWageBuilder("Infosys", 22, 3, 18);
-            EmpWageBuilder tcs = new EmpWageBuilder("TATA CONSULTANCY SERVICES", 15, 4, 25);
-
-            infosys.computeEmpWage();
-            Console.WriteLine(infosys.toString());
-            tcs.computeEmpWage();
-            Console.WriteLine(tcs.toString());
+            EmpWageBuilder builder = new EmpWageBuilder();
+            builder.addCompanyEmpWage("Infosys",20,2,20);
+            builder.addCompanyEmpWage("TCS", 10, 4, 25);
+            builder.computeEmpWage();
         }
     }
 }
