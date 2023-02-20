@@ -4,7 +4,13 @@
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("UC_10 Solution -- Check wage for multiple companies");
+            EmpWageBuilder infosys = new EmpWageBuilder("Infosys", 22, 3, 18);
+            EmpWageBuilder tcs = new EmpWageBuilder("TATA CONSULTANCY SERVICES", 15, 4, 25);
+
+            infosys.computeEmpWage();
+            Console.WriteLine(infosys.toString());
+            tcs.computeEmpWage();
+            Console.WriteLine(tcs.toString());
         }
     }
 }
