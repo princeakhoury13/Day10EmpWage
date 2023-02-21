@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Day10EmpWage
 {
-    public class EmpWageBuilder
+    public class EmpWageBuilder: IEmpWage
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
@@ -20,19 +20,19 @@ namespace Day10EmpWage
         }
 
 
-        public void addCompanyEmpWage(string company, int empRate, int workingDays, int maxHours)
+        void IEmpWage.addCompanyEmpWage(string company, int empRate, int workingDays, int maxHours)
         {
             companyEmpWageArray[this.numOfCompany] = new CompanyEmpWage(company, empRate, workingDays, maxHours);
             numOfCompany++;
         }
 
 
-        public void computeEmpWage()
+        void IEmpWage.computeEmpWage()
         {
             for(int i =0; i < numOfCompany; i++)
             {
                 companyEmpWageArray[i].setTotalWage(this.computeEmpWage(this.companyEmpWageArray[i]));
-                Console.WriteLine(this.companyEmpWageArray[i].ToString());
+                //Console.WriteLine(this.companyEmpWageArray[i].ToString());
             }
         }
 
@@ -59,8 +59,11 @@ namespace Day10EmpWage
                         break;
                 }
                 totalEmpHrs+= empHrs;
+                Console.WriteLine("Days: "+totalWorkingDays +" Emp Hours: "+empHrs);
 
             }
+            int wage = totalEmpHrs * companyEmpWage.empRate;
+            Console.WriteLine("Total Wage: "+wage);
             return totalEmpHrs * companyEmpWage.empRate;
         }
 
