@@ -4,9 +4,9 @@
     {
         public static void Main(string[] args)
         {
-            EmpWageBuilder builder = new EmpWageBuilder();
-            builder.addCompanyEmpWage("Infosys",20,2,20);
-            builder.addCompanyEmpWage("TCS", 10, 4, 25);
+            IEmpWage builder = new EmpWageBuilder();
+            builder.addCompanyEmpWage("Infosys",20,3,20);
+            builder.addCompanyEmpWage("TCS", 10, 5, 25);
             builder.computeEmpWage();
         }
     }
